@@ -1,4 +1,4 @@
-(node:23165) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(node:25657) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
 (Use `node --trace-deprecation ...` to show where the warning was created)
 newman
 
@@ -155,7 +155,7 @@ Lab05 - API Testing
 ├─────────────────────────┼──────────┼──────────┤
 │              assertions │       30 │       30 │
 ├─────────────────────────┴──────────┴──────────┤
-│ total run duration: 782ms                     │
+│ total run duration: 538ms                     │
 ├───────────────────────────────────────────────┤
 │ total data received: 0B (approx)              │
 └───────────────────────────────────────────────┘
@@ -446,3 +446,4 @@ Lab05 - API Testing
                       "undefined" is not valid JSON                                        
                       at assertion:1 in test-script                                        
                       inside "TC-12 - Registration with omitted coursesTaken"              
+Exit code: 1

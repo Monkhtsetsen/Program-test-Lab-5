@@ -1,448 +1,146 @@
-(node:21741) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(node:22901) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
 (Use `node --trace-deprecation ...` to show where the warning was created)
 newman
 
 Lab05 - API Testing
 
 → TC-01 - Create student
-  PUT /students/B231234567 [errored]
-     Invalid URI "http:///students/B231234567"
-  2. Setup successful
+  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 37ms]
+  ✓  Setup successful
 
 → TC-01 - Create course
-  PUT /courses/CS313 [errored]
-     Invalid URI "http:///courses/CS313"
-  4. Setup successful
+  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 6ms]
+  ✓  Setup successful
 
 → TC-01 - Successful registration
-  POST /registrations [errored]
-     Invalid URI "http:///registrations"
-  6. HTTP status is 200
-  7. Result is OK
+  POST http://localhost:3000/registrations [201 Created, 202B, 6ms]
+  1. HTTP status is 200
+  ✓  Result is OK
 
 → TC-02 - Student does not exist
-  POST /registrations [errored]
-     Invalid URI "http:///registrations"
-  9. Status is 200
- 10. Student does not exist
+  POST http://localhost:3000/registrations [200 OK, 192B, 4ms]
+  ✓  Status is 200
+  ✓  Student does not exist
 
 → TC-03 - Student setup
-  PUT /students/B231234568 [errored]
-     Invalid URI "http:///students/B231234568"
+  PUT http://localhost:3000/students/B231234568 [200 OK, 178B, 4ms]
 
 → TC-03 - Course setup
-  PUT /courses/CS313 [errored]
-     Invalid URI "http:///courses/CS313"
+  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 4ms]
 
 → TC-03 - Inactive student
-  POST /registrations [errored]
-     Invalid URI "http:///registrations"
- 14. Status is 200
- 15. Student is inactive
+  POST http://localhost:3000/registrations [200 OK, 198B, 3ms]
+  ✓  Status is 200
+  ✓  Student is inactive
 
 → TC-04 - Student setup
-  PUT /students/B231234567 [errored]
-     Invalid URI "http:///students/B231234567"
+  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 2ms]
 
 → TC-04 - Course does not exist
-  POST /registrations [errored]
-     Invalid URI "http:///registrations"
- 18. Status is 200
- 19. Course does not exist
+  POST http://localhost:3000/registrations [200 OK, 191B, 7ms]
+  ✓  Status is 200
+  ✓  Course does not exist
 
 → TC-05 - Student setup
-  PUT /students/B231234567 [errored]
-     Invalid URI "http:///students/B231234567"
- 21. Setup successful
+  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 5ms]
+  ✓  Setup successful
 
 → TC-05 - Course setup
-  PUT /courses/CS313 [errored]
-     Invalid URI "http:///courses/CS313"
- 23. Setup successful
+  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 3ms]
+  ✓  Setup successful
 
 → TC-05 - Prerequisite not satisfied
-  POST /registrations [errored]
-     Invalid URI "http:///registrations"
- 25. Status is 200
- 26. Prerequisite error returned
- 27. Missing prerequisite is CS201
+  POST http://localhost:3000/registrations [200 OK, 215B, 4ms]
+  ✓  Status is 200
+  ✓  Prerequisite error returned
+  ✓  Missing prerequisite is CS201
 
 → TC-06 - Missing studentID
-  POST /registrations [errored]
-     Invalid URI "http:///registrations"
- 29. Status is 400
- 30. Bad request error returned
+  POST http://localhost:3000/registrations [400 Bad Request, 202B, 4ms]
+  ✓  Status is 400
+  ✓  Bad request error returned
 
 → TC-07 - Missing courseID
-  POST /registrations [errored]
-     Invalid URI "http:///registrations"
- 32. Status is 400
- 33. Bad request error returned
+  POST http://localhost:3000/registrations [400 Bad Request, 202B, 3ms]
+  ✓  Status is 400
+  ✓  Bad request error returned
 
 → TC-08 - Student setup
-  PUT /students/B231234567 [errored]
-     Invalid URI "http:///students/B231234567"
+  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 3ms]
 
 → TC-08 - Course setup
-  PUT /courses/CS313 [errored]
-     Invalid URI "http:///courses/CS313"
+  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 3ms]
 
 → TC-08 - Course has no prerequisites
-  POST /registrations [errored]
-     Invalid URI "http:///registrations"
- 37. Status is 201
- 38. Registration successful
+  POST http://localhost:3000/registrations [201 Created, 203B, 3ms]
+  ✓  Status is 201
+  ✓  Registration successful
 
 → TC-09 - Student setup
-  PUT /students/B231234567 [errored]
-     Invalid URI "http:///students/B231234567"
+  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 2ms]
 
 → TC-09 - Course setup
-  PUT /courses/CS313 [errored]
-     Invalid URI "http:///courses/CS313"
+  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 3ms]
 
 → TC-09 - Empty coursesTaken with a prerequisite
-  POST /registrations [errored]
-     Invalid URI "http:///registrations"
- 42. Status is 200
- 43. Prerequisite error returned
+  POST http://localhost:3000/registrations [200 OK, 215B, 3ms]
+  ✓  Status is 200
+  ✓  Prerequisite error returned
 
 → TC-10 - Both student and course do not exist
-  POST /registrations [errored]
-     Invalid URI "http:///registrations"
- 45. Status is 200
- 46. Record the actual error precedence
+  POST http://localhost:3000/registrations [200 OK, 192B, 2ms]
+  ✓  Status is 200
+  ┌
+  │ 'Actual result:', 'ERROR_NO_STUDENT'
+  └
+  ✓  Record the actual error precedence
 
 → TC-11 - Student setup
-  PUT /students/B231234567 [errored]
-     Invalid URI "http:///students/B231234567"
+  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 3ms]
 
 → TC-11 - Course setup
-  PUT /courses/CS313 [errored]
-     Invalid URI "http:///courses/CS313"
+  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 5ms]
 
 → TC-11 - Student has completed only one of two prerequisites
-  POST /registrations [errored]
-     Invalid URI "http:///registrations"
- 50. Status is 200
- 51. Prerequisite error returned
- 52. Only CS202 is missing
+  POST http://localhost:3000/registrations [200 OK, 215B, 2ms]
+  ✓  Status is 200
+  ✓  Prerequisite error returned
+  ✓  Only CS202 is missing
 
 → TC-12 - Student setup
-  PUT /students/B231234567 [errored]
-     Invalid URI "http:///students/B231234567"
+  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 3ms]
 
 → TC-12 - Course setup
-  PUT /courses/CS313 [errored]
-     Invalid URI "http:///courses/CS313"
+  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 4ms]
 
 → TC-12 - Registration with omitted coursesTaken
-  POST /registrations [errored]
-     Invalid URI "http:///registrations"
- 56. Status is 200
- 57. Omitted coursesTaken defaults to empty
+  POST http://localhost:3000/registrations [200 OK, 215B, 2ms]
+  ✓  Status is 200
+  ✓  Omitted coursesTaken defaults to empty
 
-┌─────────────────────────┬──────────┬──────────┐
-│                         │ executed │   failed │
-├─────────────────────────┼──────────┼──────────┤
-│              iterations │        1 │        0 │
-├─────────────────────────┼──────────┼──────────┤
-│                requests │       27 │       27 │
-├─────────────────────────┼──────────┼──────────┤
-│            test-scripts │       43 │        0 │
-├─────────────────────────┼──────────┼──────────┤
-│      prerequest-scripts │       27 │        0 │
-├─────────────────────────┼──────────┼──────────┤
-│              assertions │       30 │       30 │
-├─────────────────────────┴──────────┴──────────┤
-│ total run duration: 797ms                     │
-├───────────────────────────────────────────────┤
-│ total data received: 0B (approx)              │
-└───────────────────────────────────────────────┘
+┌─────────────────────────┬─────────────────┬─────────────────┐
+│                         │        executed │          failed │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              iterations │               1 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│                requests │              27 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│            test-scripts │              43 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│      prerequest-scripts │              27 │               0 │
+├─────────────────────────┼─────────────────┼─────────────────┤
+│              assertions │              30 │               1 │
+├─────────────────────────┴─────────────────┴─────────────────┤
+│ total run duration: 909ms                                   │
+├─────────────────────────────────────────────────────────────┤
+│ total data received: 683B (approx)                          │
+├─────────────────────────────────────────────────────────────┤
+│ average response time: 4ms [min: 2ms, max: 37ms, s.d.: 6ms] │
+└─────────────────────────────────────────────────────────────┘
 
-[31m   # [39m[31m failure        [39m[31m detail                                                               [39m
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 01.  Error                                                                                
-                      Invalid URI "http:///students/B231234567"                            
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 02.  AssertionError  Setup successful                                                     
-                      expected PostmanResponse{ …(5) } to have property 'code'             
-                      at assertion:0 in test-script                                        
-                      inside "TC-01 - Create student"                                      
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 03.  Error                                                                                
-                      Invalid URI "http:///courses/CS313"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 04.  AssertionError  Setup successful                                                     
-                      expected PostmanResponse{ …(5) } to have property 'code'             
-                      at assertion:0 in test-script                                        
-                      inside "TC-01 - Create course"                                       
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 05.  Error                                                                                
-                      Invalid URI "http:///registrations"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 06.  AssertionError  HTTP status is 200                                                   
-                      expected PostmanResponse{ …(5) } to have property 'code'             
-                      at assertion:0 in test-script                                        
-                      inside "TC-01 - Successful registration"                             
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 07.  JSONError       Result is OK                                                         
-                      "undefined" is not valid JSON                                        
-                      at assertion:1 in test-script                                        
-                      inside "TC-01 - Successful registration"                             
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 08.  Error                                                                                
-                      Invalid URI "http:///registrations"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 09.  AssertionError  Status is 200                                                        
-                      expected PostmanResponse{ …(5) } to have property 'code'             
-                      at assertion:0 in test-script                                        
-                      inside "TC-02 - Student does not exist"                              
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 10.  JSONError       Student does not exist                                               
-                      "undefined" is not valid JSON                                        
-                      at assertion:1 in test-script                                        
-                      inside "TC-02 - Student does not exist"                              
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 11.  Error                                                                                
-                      Invalid URI "http:///students/B231234568"                            
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 12.  Error                                                                                
-                      Invalid URI "http:///courses/CS313"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 13.  Error                                                                                
-                      Invalid URI "http:///registrations"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 14.  AssertionError  Status is 200                                                        
-                      expected PostmanResponse{ …(5) } to have property 'code'             
-                      at assertion:0 in test-script                                        
-                      inside "TC-03 - Inactive student"                                    
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 15.  JSONError       Student is inactive                                                  
-                      "undefined" is not valid JSON                                        
-                      at assertion:1 in test-script                                        
-                      inside "TC-03 - Inactive student"                                    
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 16.  Error                                                                                
-                      Invalid URI "http:///students/B231234567"                            
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 17.  Error                                                                                
-                      Invalid URI "http:///registrations"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 18.  AssertionError  Status is 200                                                        
-                      expected PostmanResponse{ …(5) } to have property 'code'             
-                      at assertion:0 in test-script                                        
-                      inside "TC-04 - Course does not exist"                               
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 19.  JSONError       Course does not exist                                                
-                      "undefined" is not valid JSON                                        
-                      at assertion:1 in test-script                                        
-                      inside "TC-04 - Course does not exist"                               
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 20.  Error                                                                                
-                      Invalid URI "http:///students/B231234567"                            
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 21.  AssertionError  Setup successful                                                     
-                      expected PostmanResponse{ …(5) } to have property 'code'             
-                      at assertion:0 in test-script                                        
-                      inside "TC-05 - Student setup"                                       
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 22.  Error                                                                                
-                      Invalid URI "http:///courses/CS313"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 23.  AssertionError  Setup successful                                                     
-                      expected PostmanResponse{ …(5) } to have property 'code'             
-                      at assertion:0 in test-script                                        
-                      inside "TC-05 - Course setup"                                        
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 24.  Error                                                                                
-                      Invalid URI "http:///registrations"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 25.  AssertionError  Status is 200                                                        
-                      expected PostmanResponse{ …(5) } to have property 'code'             
-                      at assertion:0 in test-script                                        
-                      inside "TC-05 - Prerequisite not satisfied"                          
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 26.  JSONError       Prerequisite error returned                                          
-                      "undefined" is not valid JSON                                        
-                      at assertion:1 in test-script                                        
-                      inside "TC-05 - Prerequisite not satisfied"                          
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 27.  JSONError       Missing prerequisite is CS201                                        
-                      "undefined" is not valid JSON                                        
-                      at assertion:2 in test-script                                        
-                      inside "TC-05 - Prerequisite not satisfied"                          
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 28.  Error                                                                                
-                      Invalid URI "http:///registrations"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 29.  AssertionError  Status is 400                                                        
-                      expected PostmanResponse{ …(5) } to have property 'code'             
-                      at assertion:0 in test-script                                        
-                      inside "TC-06 - Missing studentID"                                   
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 30.  JSONError       Bad request error returned                                           
-                      "undefined" is not valid JSON                                        
-                      at assertion:1 in test-script                                        
-                      inside "TC-06 - Missing studentID"                                   
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 31.  Error                                                                                
-                      Invalid URI "http:///registrations"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 32.  AssertionError  Status is 400                                                        
-                      expected PostmanResponse{ …(5) } to have property 'code'             
-                      at assertion:0 in test-script                                        
-                      inside "TC-07 - Missing courseID"                                    
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 33.  JSONError       Bad request error returned                                           
-                      "undefined" is not valid JSON                                        
-                      at assertion:1 in test-script                                        
-                      inside "TC-07 - Missing courseID"                                    
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 34.  Error                                                                                
-                      Invalid URI "http:///students/B231234567"                            
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 35.  Error                                                                                
-                      Invalid URI "http:///courses/CS313"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 36.  Error                                                                                
-                      Invalid URI "http:///registrations"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 37.  AssertionError  Status is 201                                                        
-                      expected PostmanResponse{ …(5) } to have property 'code'             
-                      at assertion:0 in test-script                                        
-                      inside "TC-08 - Course has no prerequisites"                         
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 38.  JSONError       Registration successful                                              
-                      "undefined" is not valid JSON                                        
-                      at assertion:1 in test-script                                        
-                      inside "TC-08 - Course has no prerequisites"                         
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 39.  Error                                                                                
-                      Invalid URI "http:///students/B231234567"                            
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 40.  Error                                                                                
-                      Invalid URI "http:///courses/CS313"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 41.  Error                                                                                
-                      Invalid URI "http:///registrations"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 42.  AssertionError  Status is 200                                                        
-                      expected PostmanResponse{ …(5) } to have property 'code'             
-                      at assertion:0 in test-script                                        
-                      inside "TC-09 - Empty coursesTaken with a prerequisite"              
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 43.  JSONError       Prerequisite error returned                                          
-                      "undefined" is not valid JSON                                        
-                      at assertion:1 in test-script                                        
-                      inside "TC-09 - Empty coursesTaken with a prerequisite"              
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 44.  Error                                                                                
-                      Invalid URI "http:///registrations"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 45.  AssertionError  Status is 200                                                        
-                      expected PostmanResponse{ …(5) } to have property 'code'             
-                      at assertion:0 in test-script                                        
-                      inside "TC-10 - Both student and course do not exist"                
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 46.  JSONError       Record the actual error precedence                                   
-                      "undefined" is not valid JSON                                        
-                      at assertion:1 in test-script                                        
-                      inside "TC-10 - Both student and course do not exist"                
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 47.  Error                                                                                
-                      Invalid URI "http:///students/B231234567"                            
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 48.  Error                                                                                
-                      Invalid URI "http:///courses/CS313"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 49.  Error                                                                                
-                      Invalid URI "http:///registrations"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 50.  AssertionError  Status is 200                                                        
-                      expected PostmanResponse{ …(5) } to have property 'code'             
-                      at assertion:0 in test-script                                        
-                      inside "TC-11 - Student has completed only one of two prerequisites" 
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 51.  JSONError       Prerequisite error returned                                          
-                      "undefined" is not valid JSON                                        
-                      at assertion:1 in test-script                                        
-                      inside "TC-11 - Student has completed only one of two prerequisites" 
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 52.  JSONError       Only CS202 is missing                                                
-                      "undefined" is not valid JSON                                        
-                      at assertion:2 in test-script                                        
-                      inside "TC-11 - Student has completed only one of two prerequisites" 
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 53.  Error                                                                                
-                      Invalid URI "http:///students/B231234567"                            
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 54.  Error                                                                                
-                      Invalid URI "http:///courses/CS313"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 55.  Error                                                                                
-                      Invalid URI "http:///registrations"                                  
-                      at request                                                           
-                      inside ""                                                            
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 56.  AssertionError  Status is 200                                                        
-                      expected PostmanResponse{ …(5) } to have property 'code'             
-                      at assertion:0 in test-script                                        
-                      inside "TC-12 - Registration with omitted coursesTaken"              
-[90m     [39m[90m                [39m[90m                                                                      [39m
- 57.  JSONError       Omitted coursesTaken defaults to empty                               
-                      "undefined" is not valid JSON                                        
-                      at assertion:1 in test-script                                        
-                      inside "TC-12 - Registration with omitted coursesTaken"              
+[31m  # [39m[31m failure        [39m[31m detail                                                [39m
+[90m    [39m[90m                [39m[90m                                                       [39m
+ 1.  AssertionError  HTTP status is 200                                    
+                     expected response to have status code 200 but got 201 
+                     at assertion:0 in test-script                         
+                     inside "TC-01 - Successful registration"              

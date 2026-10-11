@@ -1,19 +1,19 @@
-(node:22035) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
+(node:22760) [DEP0176] DeprecationWarning: fs.F_OK is deprecated, use fs.constants.F_OK instead
 (Use `node --trace-deprecation ...` to show where the warning was created)
 newman
 
 Lab05 - API Testing
 
 → TC-01 - Create student
-  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 40ms]
+  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 51ms]
   ✓  Setup successful
 
 → TC-01 - Create course
-  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 7ms]
+  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 6ms]
   ✓  Setup successful
 
 → TC-01 - Successful registration
-  POST http://localhost:3000/registrations [201 Created, 202B, 4ms]
+  POST http://localhost:3000/registrations [201 Created, 202B, 2ms]
   ✓  HTTP status is 201
   ✓  Result is OK
 
@@ -34,15 +34,15 @@ Lab05 - API Testing
   ✓  Student is inactive
 
 → TC-04 - Student setup
-  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 5ms]
+  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 4ms]
 
 → TC-04 - Course does not exist
-  POST http://localhost:3000/registrations [200 OK, 191B, 5ms]
+  POST http://localhost:3000/registrations [200 OK, 191B, 4ms]
   ✓  Status is 200
   ✓  Course does not exist
 
 → TC-05 - Student setup
-  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 6ms]
+  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 4ms]
   ✓  Setup successful
 
 → TC-05 - Course setup
@@ -50,7 +50,7 @@ Lab05 - API Testing
   ✓  Setup successful
 
 → TC-05 - Prerequisite not satisfied
-  POST http://localhost:3000/registrations [200 OK, 215B, 3ms]
+  POST http://localhost:3000/registrations [200 OK, 215B, 5ms]
   ✓  Status is 200
   ✓  Prerequisite error returned
   ✓  Missing prerequisite is CS201
@@ -61,18 +61,18 @@ Lab05 - API Testing
   ✓  Bad request error returned
 
 → TC-07 - Missing courseID
-  POST http://localhost:3000/registrations [400 Bad Request, 202B, 4ms]
+  POST http://localhost:3000/registrations [400 Bad Request, 202B, 3ms]
   ✓  Status is 400
   ✓  Bad request error returned
 
 → TC-08 - Student setup
-  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 4ms]
+  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 2ms]
 
 → TC-08 - Course setup
-  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 3ms]
+  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 2ms]
 
 → TC-08 - Course has no prerequisites
-  POST http://localhost:3000/registrations [201 Created, 202B, 2ms]
+  POST http://localhost:3000/registrations [201 Created, 202B, 3ms]
   ✓  Status is 201
   ✓  Registration successful
 
@@ -80,10 +80,10 @@ Lab05 - API Testing
   PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 2ms]
 
 → TC-09 - Course setup
-  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 2ms]
+  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 3ms]
 
 → TC-09 - Empty coursesTaken with a prerequisite
-  POST http://localhost:3000/registrations [200 OK, 215B, 4ms]
+  POST http://localhost:3000/registrations [200 OK, 215B, 3ms]
   ✓  Status is 200
   ✓  Prerequisite error returned
 
@@ -96,13 +96,13 @@ Lab05 - API Testing
   ✓  Record the actual error precedence
 
 → TC-11 - Student setup
-  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 3ms]
+  PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 4ms]
 
 → TC-11 - Course setup
-  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 3ms]
+  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 2ms]
 
 → TC-11 - Student has completed only one of two prerequisites
-  POST http://localhost:3000/registrations [200 OK, 215B, 5ms]
+  POST http://localhost:3000/registrations [200 OK, 215B, 2ms]
   ✓  Status is 200
   ✓  Prerequisite error returned
   ✓  Only CS202 is missing
@@ -111,7 +111,7 @@ Lab05 - API Testing
   PUT http://localhost:3000/students/B231234567 [200 OK, 178B, 3ms]
 
 → TC-12 - Course setup
-  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 4ms]
+  PUT http://localhost:3000/courses/CS313 [200 OK, 178B, 3ms]
 
 → TC-12 - Registration with omitted coursesTaken
   POST http://localhost:3000/registrations [200 OK, 215B, 3ms]
@@ -131,9 +131,9 @@ Lab05 - API Testing
 ├─────────────────────────┼─────────────────┼─────────────────┤
 │              assertions │              30 │               0 │
 ├─────────────────────────┴─────────────────┴─────────────────┤
-│ total run duration: 947ms                                   │
+│ total run duration: 876ms                                   │
 ├─────────────────────────────────────────────────────────────┤
 │ total data received: 682B (approx)                          │
 ├─────────────────────────────────────────────────────────────┤
-│ average response time: 5ms [min: 2ms, max: 40ms, s.d.: 6ms] │
+│ average response time: 5ms [min: 2ms, max: 51ms, s.d.: 9ms] │
 └─────────────────────────────────────────────────────────────┘
